@@ -12,6 +12,7 @@ public class Test1 {
 //		int k=to.getN();  // 직접 변수를 쓰고싶거나, 재사용하고싶은경우
 //		System.out.println(k); // == System.out.println(to.getN());
 		
+		
 		Scanner s=new Scanner(System.in);
 		// if else 로 하면 에러가 날 수 있는 곳에 다 넣다보니 길어짐.
 		// 그래서 try ~ catch 사용

@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
 public class Date_1202 {
-//	void Handling(Menu menu) {//¸Å°³º¯¼ö¿¡ Å¬·¡½º Àü´Ş °¡´É
+//	void Handling(Menu menu) {//ë§¤ê°œë³€ìˆ˜ì— í´ë˜ìŠ¤ ì „ë‹¬ ê°€ëŠ¥
 //		Scanner scan=new Scanner(System.in);
 //		int sum=0;
 //		menu.display();
-//		System.out.println("ÁÖ¹®ÇÒ ¸Ş´º¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä. (X:ÁÖ¹®Á¾·á)");
+//		System.out.println("ì£¼ë¬¸í•  ë©”ë‰´ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”. (X:ì£¼ë¬¸ì¢…ë£Œ)");
 //		int menu_num=Integer.parseInt(scan.nextLine());
 //		while(menu_num!=0) {
-//			System.out.println("¸Ş´ºÀÇ ¼ö·®À» ÀÔ·ÂÇÏ¼¼¿ä.");
+//			System.out.println("ë©”ë‰´ì˜ ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì„¸ìš”.");
 //			int qty=Integer.parseInt(scan.nextLine());
-			// ±İ¾× ÀÚµ¿°è»ê&Ç¥½Ã(ÇöÀç¸Ş´ºÀÇ ÃÑ¾×& ÇöÀç±îÁö ÁÖ¹®ÇÑ ³»¿ªÀÇ ÃÑ¾×)
+			// ê¸ˆì•¡ ìë™ê³„ì‚°&í‘œì‹œ(í˜„ì¬ë©”ë‰´ì˜ ì´ì•¡& í˜„ì¬ê¹Œì§€ ì£¼ë¬¸í•œ ë‚´ì—­ì˜ ì´ì•¡)
 //			menu_num--;
 //			this.alSum.add(menu.alPrice.get(menu_num)*qty);
 //			this.alMenu.add(menu.alMenu.get(menu_num);
 //			this.alQty.add(qty);
 //	
 //			menu.display();
-//			System.out.println("ÁÖ¹®ÇÒ ¸Ş´º¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ã¿À (X:ÁÖ¹®Á¾·á)")
+//			System.out.println("ì£¼ë¬¸í•  ë©”ë‰´ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ (X:ì£¼ë¬¸ì¢…ë£Œ)")
 //		}
-//		System.out.println("¸ğ¹ÙÀÏ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+//		System.out.println("ëª¨ë°”ì¼ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 //		String mobile=scan.nextLine();
 //		if(!mobile.equals("")) {
 //			System.out.println(mobile);
@@ -27,7 +27,7 @@ public class Date_1202 {
 //			System.out.println("--");
 //		}
 //		this.display();
-//		System.out.println("ÃÑ¾×: "+sum);
+//		System.out.println("ì´ì•¡: "+sum);
 //	}
 //	void showOrder() {
 //		int n=this.alMenu.size()-1;

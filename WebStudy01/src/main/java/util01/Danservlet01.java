@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PlusServlet01
+ * Servlet implementation class Danservlet01
  */
-@WebServlet("/PlusServlet01")
-public class PlusServlet01 extends HttpServlet {
+@WebServlet("/Danservlet01")
+public class Danservlet01 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PlusServlet01() {
+    public Danservlet01() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,22 +28,19 @@ public class PlusServlet01 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-		String str1=req.getParameter("num1");
-		String str2=req.getParameter("num2");
-		if(str1==null || str2==null) {
-			return;
+		response.setContentType("text/html; charset=utf-8");
+		String dan=req.getParameter("dan");
+		String outstr="";
+		if(dan==null) {
+			outstr="No dan number.";
+		} else {
+			int num1=Integer.parseInt(dan);
+			for(int num2=1; num2<10; num2++) {
+				outstr+=num1+"x"+num2+"="+(num1*num2)+"<br>";
+			}
 		}
-		int num1=Integer.parseInt(str1);
-		int num2=Integer.parseInt(str2);
-		
-		int add=num1*num2;
-		String outstr="<html><head><title>곱하기</title></head><body>"+num1+"*"+num2+"="+add+"</body></html>";
 		PrintWriter out=response.getWriter();
-//		out.println("<html><head><title>Plus</title></head>");
-//		out.println("<body>");
-//		out.println(num1+"*"+num2+"="+add);
-//		out.println("</body></html>");
-		out.println(outstr);
+		out.println("<html><head><title>곱하기</title></head><body>"+outstr+"</body></html>");
 	}
 
 	/**

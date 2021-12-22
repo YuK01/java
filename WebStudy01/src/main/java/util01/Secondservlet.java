@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PlusServlet01
+ * Servlet implementation class Secondservlet
  */
-@WebServlet("/PlusServlet01")
-public class PlusServlet01 extends HttpServlet {
+@WebServlet("/Secondservlet")
+public class Secondservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PlusServlet01() {
+    public Secondservlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,22 +28,16 @@ public class PlusServlet01 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-		String str1=req.getParameter("num1");
-		String str2=req.getParameter("num2");
-		if(str1==null || str2==null) {
-			return;
-		}
-		int num1=Integer.parseInt(str1);
-		int num2=Integer.parseInt(str2);
-		
-		int add=num1*num2;
-		String outstr="<html><head><title>곱하기</title></head><body>"+num1+"*"+num2+"="+add+"</body></html>";
+		String str1=req.getParameter("a");
+		String str2=req.getParameter("b");
+		String str3=req.getParameter("c");
+		int a=Integer.parseInt(str1);
+		int b=Integer.parseInt(str2);
+		int c=Integer.parseInt(str3);
+		int x1=(int)(-b+Math.sqrt(b*b-4*a*c))/(2*a);
+		int x2=(int)(-b-Math.sqrt(b*b-4*a*c))/(2*a);
 		PrintWriter out=response.getWriter();
-//		out.println("<html><head><title>Plus</title></head>");
-//		out.println("<body>");
-//		out.println(num1+"*"+num2+"="+add);
-//		out.println("</body></html>");
-		out.println(outstr);
+		out.println("<html><head><title>2차방정식</title></head><body>x1= "+x1+"<br> x2= "+x2+"</body></html>");
 	}
 
 	/**

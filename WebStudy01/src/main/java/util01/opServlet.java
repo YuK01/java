@@ -36,11 +36,16 @@ public class opServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out=response.getWriter();
+		// 전달된 값을 받아들이고 변환.
+		response.setContentType("text/html; charset=UTF-8"); //한글표시(출력)
+		PrintWriter out=response.getWriter(); // 출력
 		String str1=req.getParameter("val1");
 		String str2=req.getParameter("val2");
 		String oper=req.getParameter("oper");
+		if(str1==null || str2==null || oper==null) { // 유효성체크(validation)
+			return;
+		}
+		// 연산부
 		int val1=Integer.parseInt(str1);
 		int val2=Integer.parseInt(str2);
 		int result=0;
@@ -57,6 +62,7 @@ public class opServlet extends HttpServlet {
 				result=val1/val2;	
 			}
 		}
+		// 출력부
 		out.println("<html><head><title>사칙연산</title></head><body>");
 		out.println("value1: "+val1+"<br>");
 		out.println("value2: "+val2+"<br>");

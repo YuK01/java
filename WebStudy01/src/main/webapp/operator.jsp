@@ -19,7 +19,7 @@
 			</tr>
 			<tr>
 				<td>operator</td>
-				<td><select size=4 name=oper>
+				<td><select size=4 name=oper style="width:120px">
 				<option value="+">+</option>
 				<option value="-">-</option>
 				<option value="*">*</option>
@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<td colspan=2 align=center>
-				<input type=submit value="전송">
+				<input type=submit value="전송">&nbsp;&nbsp;<input type=reset value="Reset">
 				</td>
 			</tr>
 		</table>

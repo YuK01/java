@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="POST" action="opServlet">
+	<form method="POST" action="operator_bk.jsp">
 		<table>
 			<tr>
 				<td>value1:</td>

@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+	if(request.getAttribute("userid")==null){
+		out.print("<a href='login.jsp'>로그인</a>&nbsp;<a href='signon.jsp'>회원가입</a>");
+	} else {
+		out.print(request.getAttribute("userid")+"<a href='logout.jsp'>로그아웃</a>");
+	}
+%>
 </body>
 </html>

@@ -56,11 +56,10 @@ request.setCharacterEncoding("UTF-8");
 $(document)
 .on('click','#btnCancle',function(){
 	document.location='home.jsp';
-	return false; //stop bubbling effect
 })
 .on('submit',function(){
 	if($('input[name=Name]').val()=='') {
-		alert('이름을 입력하세요.');
+		alert('실명을 입력하세요.');
 		return false;
 	}
 	let check=false;
@@ -87,7 +86,7 @@ $(document)
 		return false;
 	}
 	if($('input[name=passcode1]').val()!=$('input[name=passcode]').val()) {
-		alert('비밀번호와 비밀번호확인이 같지 않습니다.');
+		alert('비밀번호와 비밀번호입력이 같지 않습니다.');
 		return false;
 	}
 	check=false;

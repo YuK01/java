@@ -1,15 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <%
-	request.removeAttribute("userid");
-	request.getRequestDispatcher("home.jsp").forward(request,response);
+// 	request.removeAttribute("userid");
+	application.removeAttribute("userid");
+	application.removeAttribute("passcode");
+	session.invalidate();
+// 	request.getRequestDispatcher("home.jsp").forward(request,response);
+	response.sendRedirect("home.jsp");
 %>
-</body>
-</html>

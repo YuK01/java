@@ -11,6 +11,7 @@
 	td{border:1px solid blue}
 </style>
 <body>
+<jsp:include page="10_header.jsp" />
 <form method=post action="login_check.jsp">
 <table align=center valign=middle>
 <tr><td>아이디</td><td><input type=text name=userid id=userid></td></tr>
@@ -20,6 +21,7 @@
 <tr><td colspan=2 align=right><a href="signon.jsp">회원가입</a>
 </table>
 </form>
+<jsp:include page="10_footer.jsp" />
 </body>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script>

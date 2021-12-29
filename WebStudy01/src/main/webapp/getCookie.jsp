@@ -8,10 +8,10 @@
 </head>
 <body>
 <%
-	request.removeAttribute("userid");
-	application.removeAttribute("userid");
-	application.removeAttribute("passcode");
-	request.getRequestDispatcher("home.jsp").forward(request,response);
+	Cookie[] cookies=request.getCookies(); // 같은 프로젝트에서 만들어진 cookie만 읽음
+	for(Cookie c:cookies){
+		out.println(c.getName()+":"+c.getValue()+"<br>");
+	}
 %>
 </body>
 </html>

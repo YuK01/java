@@ -7,7 +7,7 @@
 <title>First Page</title>
 </head>
 <body>
-<%
+<%-- <%
 	pageContext.setAttribute("name","page man");
 	request.setAttribute("name","request man");
 	session.setAttribute("name","session man");
@@ -22,6 +22,21 @@
 // 	RequestDispatcher rd=request.getRequestDispatcher("07_secondpage.jsp");
 // 	rd.forward(request,response);
 	request.getRequestDispatcher("07_secondpage.jsp").forward(request,response); //자동이동
+%> --%>
+<%
+	pageContext.setAttribute("name","page man");
+	request.setAttribute("name","request man");
+	session.setAttribute("name","session man");
+	application.setAttribute("name","application man");
 %>
+firstPage.jsp<br>
+하나의 PAGE속성:${pageScope.name}<br>
+하나의 REQUEST속성:${requestScope.name}<br>
+하나의 SESSION속성:${sessionScope.name}<br>
+하나의 APPLICATION속성:${applicationScope.name}<br>
+<jsp:forward page="07_secondpage.jsp">
+	<jsp:param name="name" value="request man" />
+</jsp:forward>
+
 </body>
 </html>

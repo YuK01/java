@@ -9,7 +9,7 @@
 </head>
 <body align=center>
 <h1>
-	주문관리 
+	주문관리
 </h1>
 
 <table style="border-collapse:collapse;" align=center>

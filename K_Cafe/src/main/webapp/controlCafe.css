@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Moon+Dance&family=Nanum+Gothic+Coding&family=Sunflower:wght@500&display=swap');
+body{
+	background-color:#DFD3C3;
+}
+button {
+    position: relative;
+    padding: 10px 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    border: 3px solid #c7b198;
+    background-color:#f0ece3;
+    color: darkslategray;
+    width:100px;
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-size:11pt;
+}
+button:hover{
+	letter-spacing: 2px;
+    background-color: #c7b198;
+    color: darkslategray;
+}
+#btnMenu,#btnSum{
+	margin-right:15px;
+}
+#selMenu,#selOrder,#selMenu1 {
+	width:280px;
+    height:370px;
+    font-size:13pt;
+    padding: 10pt 5pt 5pt 20pt;
+    background-color:#f0ece3;
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+#selSales,#SumMenu,#SumC,#SumD{
+	width:300px;
+	height:240px;
+	font-size:13pt;
+    padding: 10pt 5pt 10pt 7pt;
+    background-color:#f0ece3;
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+#head{
+	height:10vh;
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+}
+#head img {
+	position:relative;
+	float:left;
+	width:90px;
+	height:90px;
+	margin-left:38%;
+	vertical-align:middle;
+}
+#head span {
+	font-family: 'Moon Dance', cursive;
+	font-size:55pt;
+	font-weight:bold;
+}
+#foot{
+	height:13vh;
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#foot div{
+	font-family: 'Nanum Gothic Coding', monospace;
+	letter-spacing: 2px;
+	display:inline-block;
+	vertical-align:middle;
+	margin-top:8px;
+	color:grey;
+}
+#tb{
+	margin-left:auto;
+	margin-right:auto;
+	height:70vh;
+}
+#bound {   	
+        border-collapse:collapse;
+        height:600px;
+        width:350px;
+}
+.hr-sect {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: darkslategray;
+	font-size: 20px;
+	font-weight:bold;
+	margin: 8px 0px;
+    font-family: 'Sunflower', sans-serif;
+}
+.hr-sect::before,
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background:darkslategray;
+	height: 2px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 16px;
+}
+#code,#_price{
+	text-align:right;
+}
+#_name{
+	text-align:left;
+}
+#dlgMenu table,#dlgSl table{
+	background-color:#DFD3C3;
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+#dlgMenu,#dlgSl{
+	background-color:#DFD3C3;
+}

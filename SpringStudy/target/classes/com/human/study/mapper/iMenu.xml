@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.study.IMenu">
+<insert id="addMenu">
+	insert into menu(code,name,price) values(seq_menu.nextval,#{param1},#{param2})
+</insert>
+<insert id="addRoom">
+	insert into room(roomcode,name,type,howmany,howmuch)
+	 values(seq_room.nextval,#{param1},#{param2},#{param3},#{param4})
+</insert>
+<insert id="insertRoomType">
+	insert into roomtype(type_code,type_name)
+	 values(#{param1},#{param2})
+</insert>
+<select id="roomList" resultType="com.human.study.Room">
+	select a.roomcode as code,a.name as name,b.type_name as type_name,a.howmany as howmany,a.howmuch as howmuch
+	 from room a,roomtype b
+	 where a.type=b.type_code(+)
+	 order by a.roomcode
+</select>
+</mapper>

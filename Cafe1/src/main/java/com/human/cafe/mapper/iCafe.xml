@@ -7,4 +7,31 @@
 <select id="getMenuList" resultType="com.human.cafe.Menu" >
 	select code,name,price from menu order by code
 </select>
+<insert id="insertMenu">
+	insert into menu values(seq_menucode.nextval,#{param1},#{param2})
+</insert>
+<update id="updateMenu">
+	update menu set name=#{param2},price=#{param3} where code=#{param1}
+</update>
+<delete id="deleteMenu">
+	delete from menu where code=#{param1}
+</delete>
+<insert id="insertSales">
+	insert into cafe_sales(code,menu_code,qty,total,sold_time,mobile) 
+	 values(seq_order.nextval,#{param1},#{param2},#{param3},to_char(sysdate,'YYYYMMDDHHMI'),#{param4})
+</insert>
+<select id="getSales" resultType="com.human.cafe.Cafe_sales">
+	select a.mobile,b.name,a.qty,a.total,a.sold_time
+	 from cafe_sales a, menu b
+	 where a.menu_code=b.code
+	 order by sold_time desc
+</select>
+<select id="SalesMenu" resultType="com.human.cafe.Sales">
+	select b.name as name,sum(a.total) as total from cafe_sales a,menu b 
+	where a.menu_code=b.code
+	group by b.name
+</select>
+<select id="SalesMobile" resultType="com.human.cafe.Sales">
+	 select mobile as name,sum(total) as total from cafe_sales group by mobile order by mobile
+</select>
 </mapper>

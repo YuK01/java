@@ -1,6 +1,7 @@
 package com.human.study;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -41,31 +42,52 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+	//메뉴관리
 	@RequestMapping("/menu")
-	public String menu() { return "addMenu"; }
+	public String menu(Model m) {
+		IMenu menu=sqlSession.getMapper(IMenu.class);
+		System.out.println("MenuList["+menu.menuList().size()+"]");
+		m.addAttribute("menu",menu.menuList());
+		return "addMenu";
+	}
 	
 	@RequestMapping("/addMenu")
 	public String addmenu(HttpServletRequest hsr) {
 		String name=hsr.getParameter("menuname");
-		int price=Integer.parseInt("price");
+		int price=Integer.parseInt(hsr.getParameter("price"));
+		String strCode=hsr.getParameter("code");
 		
 		IMenu menu=sqlSession.getMapper(IMenu.class);
-		menu.addMenu(name, price);		
-		return "addMenu";
+		if(strCode.equals("") || strCode.equals(null)) {
+			menu.addMenu(name, price);			
+		} else {
+			int code=Integer.parseInt(strCode);
+			menu.updateMenu(code,name,price);
+		}		
+		return "redirect:/menu";
+	}
+	@RequestMapping("/deleteMenu")
+	public String deleteMenu(HttpServletRequest hsr) {
+		int code=Integer.parseInt(hsr.getParameter("code"));
+		
+		IMenu menu=sqlSession.getMapper(IMenu.class);
+		menu.deleteMenu(code);
+		return "redirect:/menu";
 	}
 	// 객실 관리
 	@RequestMapping("/room")
 	public String room(Model m) {
 		IMenu menu=sqlSession.getMapper(IMenu.class);
-		System.out.println(menu.roomList().size());
+		System.out.println("RoomList["+menu.roomList().size()+"]");
 		m.addAttribute("room",menu.roomList());
+		m.addAttribute("type",menu.getRoomType());
 		return "addRoom";
 	}
 	@RequestMapping("/addRoom")
 	public String addRoom(HttpServletRequest hsr) {
 		String name=hsr.getParameter("roomname");
 		int type=Integer.parseInt(hsr.getParameter("roomtype"));
+		System.out.println("타입코드:"+type);
 		int howmany=Integer.parseInt(hsr.getParameter("howmany"));
 		int howmuch=Integer.parseInt(hsr.getParameter("howmuch"));
 		
@@ -73,6 +95,14 @@ public class HomeController {
 		menu.addRoom(name, type, howmany, howmuch);
 		
 //		return "addRoom";
+		return "redirect:/room";
+	}
+	@RequestMapping("/deleteRoom")
+	public String deleteRoom(HttpServletRequest hsr) {
+		int code=Integer.parseInt(hsr.getParameter("code"));
+		
+		IMenu menu=sqlSession.getMapper(IMenu.class);
+		menu.deleteRoom(code);
 		return "redirect:/room";
 	}
 	// 객실타입 관리

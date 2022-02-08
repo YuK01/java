@@ -12,9 +12,9 @@
 	<tr>
 		<td>
 			<select id=selMenu style='width:200px' size=10>
-				<c:forEach var="menu" items="${menu }">
-					<option value=${menu.code }>${menu.name },${menu.price }</option>
-				</c:forEach>
+<%-- 				<c:forEach var="menu" items="${menu }"> --%>
+<%-- 					<option value=${menu.code }>${menu.name },${menu.price }</option> --%>
+<%-- 				</c:forEach> --%>
 			</select>
 		</td>
 		<td>
@@ -45,6 +45,20 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script>
 $(document)
+.ready(function(){ // just after webpage is loaded
+	$.ajax({url:"/study/menulist",
+			data:{},
+			datatype:"JSON",
+			method:"POST",
+			success:function(txt){
+// 				console.log(txt);
+				for(i=0;i<txt.length;i++){
+					let str='<option value='+txt[i]['code']+'>'+txt[i]['name']+', '+txt[i]['price']+'</option>'
+					console.log(str);
+					$('#selMenu').append(str);
+				}
+			}})
+})
 .on('click','#selMenu option',function(){
 	console.log($(this).val()+","+$(this).text());
 	$('#code').val($(this).val());

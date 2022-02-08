@@ -33,7 +33,19 @@
 <delete id="deleteRoom">
 	delete from room where roomcode=#{param1}
 </delete>
+<update id="updateRoom">
+	update room set name=#{param2},type=#{param3},howmany=#{param4},howmuch=#{param5}
+	 where roomcode=#{param1}
+</update>
 <select id="getRoomType" resultType="com.human.study.RoomType">
 	select type_code as code,type_name as name from roomtype order by type_code
+</select>
+<select id="getEmpList" resultType="com.human.study.Employee">
+	select employee_id,emp_name,phone_number,hire_date,manager_id
+	 from employees order by employee_id
+</select>
+<select id="getEmp" resultType="com.human.study.Employee">
+	select employee_id,emp_name,phone_number,hire_date,manager_id
+	 from employees where employee_id=#{param1} order by employee_id
 </select>
 </mapper>

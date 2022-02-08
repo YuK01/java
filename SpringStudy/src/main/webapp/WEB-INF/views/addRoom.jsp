@@ -12,9 +12,9 @@
 		<tr>
 			<td>
 				<select id=selRoom style='width:200px' size=10>
-					<c:forEach var="room" items="${room }">
-						<option value=${room.code }>${room.name },${room.type_name },${room.howmany },${room.howmuch }</option>
-					</c:forEach>
+<%-- 					<c:forEach var="room" items="${room }"> --%>
+<%-- 						<option value=${room.code }>${room.name },${room.type_name },${room.howmany },${room.howmuch }</option> --%>
+<%-- 					</c:forEach> --%>
 				</select>
 			</td>
 			<td>
@@ -29,10 +29,10 @@
 							<td align=right>타입:</td>
 							<td>
 								<select id=roomtype name=roomtype>
-									<option value="">-</option>
-									<c:forEach var="type" items="${type }">
-										<option value=${type.code }>${type.name }</option>
-									</c:forEach>
+									<option value="0">-</option>
+<%-- 									<c:forEach var="type" items="${type }"> --%>
+<%-- 										<option value=${type.code }>${type.name }</option> --%>
+<%-- 									</c:forEach> --%>
 								</select>
 							</td>
 						</tr>
@@ -48,6 +48,7 @@
 							<td colspan=2 align=right>
 								<input type=submit value="추가">
 								<input type=button value="삭제" id=btnDelete>
+								<input type=reset value="비우기">
 							</td>
 						</tr>
 					</table>
@@ -59,6 +60,31 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script>
 $(document)
+.ready(function(){
+	$.ajax({url:"/study/roomlist",
+			datatype:'json',
+			method:'post',
+			success:function(txt){
+// 				console.log(txt);
+				for(i=0;i<txt.length;i++){
+					let str="<option value="+txt[i]['code']+">"+txt[i]['name']+","+
+							txt[i]['type_name']+","+txt[i]['howmany']+","+txt[i]['howmuch']+"</option>"
+					console.log(str);
+					$('#selRoom').append(str);
+				}
+			}})
+	$.ajax({url:"/study/typelist",
+			datatype:'json',
+			method:'post',
+			success:function(txt){
+// 				console.log(txt);
+				for(i=0;i<txt.length;i++){
+					let str="<option value="+txt[i]['code']+">"+txt[i]['name']+"</option>"
+					console.log(str);
+					$('#roomtype').append(str);
+				}
+			}})
+})
 .on('click','#selRoom option',function(){
 	console.log($(this).val()+","+$(this).text());
 	$('#code').val($(this).val());
@@ -84,6 +110,18 @@ $(document)
 	console.log(url);
 	document.location=url;
 	return false;
+})
+.on('submit','#frmRoom',function(){
+	$('#roomname').val($.trim($('#roomname').val()));
+	$('#roomtype').val($.trim($('#roomtype').val()));
+	$('#howmany').val($.trim($('#howmany').val()));
+	$('#howmuch').val($.trim($('#howmuch').val()));
+	
+	if($('#roomname').val()=="" || $('#roomtype').val()=="" || $('#howmany').val()=="" || $('#howmuch').val()=="") {
+		alert("빈칸없이 채워주세요");
+		return false;
+	}		
+	return true;
 })
 </script>
 </html>
